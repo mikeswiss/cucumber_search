@@ -15,13 +15,13 @@ Feature: Adopting Puppies
     And I enter "<address>" in the address field
     And I enter "<email>" in the email field
     And I select "<pay_type>" from the pay with dropdown
-    And I click the "Place Orderr" button
+    And I click the "Place Order" button
     Then I should see "Thank you for adopting a puppy!"
 
   Examples:
     | name	| address		| email			| pay_type	|
     | Cheezy	| 123 Main Street	| cheezy@albenzi.com	| Credit card	|
-    | Joseph	| 555 South St.		| joe@guru.com		| Checky	|
+    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
     | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
 
   Scenario Outline: Adopting two puppies
