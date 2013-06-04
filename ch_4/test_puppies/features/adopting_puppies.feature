@@ -15,7 +15,7 @@ Feature: Adopting Puppies
     And I enter "<address>" in the address field
     And I enter "<email>" in the email field
     And I select "<pay_type>" from the pay with dropdown
-    And I click the "Place Order" button
+    And I click the "Place Orderr" button
     Then I should see "Thank you for adopting a puppy!"
 
   Examples:
