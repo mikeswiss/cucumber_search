@@ -21,7 +21,7 @@ Feature: Adopting Puppies
   Examples:
     | name	| address		| email			| pay_type	|
     | Cheezy	| 123 Main Street	| cheezy@albenzi.com	| Credit card	|
-    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
+    | Joseph	| 555 South St.		| joe@guru.com		| Checky	|
     | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
 
   Scenario Outline: Adopting two puppies
