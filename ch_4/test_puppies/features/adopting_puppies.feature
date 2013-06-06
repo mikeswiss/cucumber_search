@@ -29,7 +29,7 @@ Feature: Adopting Puppies
     When I click the "View Details" button
     And I click the "Adopt Me!" button
     And I click the "Adopt Another Puppy" button
-    And I click the "View Details" button
+    And I click the second "View Details" button
     And I click the "Adopt Me!" button
     And I click the "Complete the Adoption" button
     And I enter "<name>" in the name field

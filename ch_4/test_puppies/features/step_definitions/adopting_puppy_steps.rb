@@ -6,6 +6,10 @@ When /^I click the "([^\"]*)" button$/ do |button_value|
   @browser.button(:value => button_value).click
 end
 
+When /^I click the second "([^\"]*)" button$/ do |button_value|
+  @browser.button(:value => button_value, :index => 1).click
+end
+
 When /^I enter "([^\"]*)" in the name field$/ do |name|
   @browser.text_field(:id => "order_name").set(name)
 end
