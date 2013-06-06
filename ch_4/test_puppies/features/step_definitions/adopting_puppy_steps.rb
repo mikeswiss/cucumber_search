@@ -1,3 +1,7 @@
+def row_for(line_item)
+  (line_item - 1) * 6
+end
+
 Given /^I am on the puppy adoption site$/ do
   @browser.goto "http://puppies.herokuapp.com"
 end
@@ -31,12 +35,12 @@ Then /^I should see "([^\"]*)"$/ do |expected_text|
 end
 
 Then /^I should see "([^"]*)" as the name for line item (\d+)$/ do |name, line_item|
-  row = (line_item.to_i - 1) * 6
+  row = row_for(line_item.to_i)
   @browser.table(:index => 0)[row][1].text.should include name
 end
 
 When /^I should see "([^"]*)" as the subtotal for line item (\d+)$/ do |subtotal, line_item|
-  row = (line_item.to_i - 1) * 6
+  row = row_for(line_item.to_i) 
   @browser.table(:index => 0)[row][3].text.should == subtotal
 end
 
