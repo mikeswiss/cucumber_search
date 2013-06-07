@@ -1,13 +1,14 @@
-def row_for(line_item)
-  (line_item - 1) * 6
-end
-
 Given /^I am on the puppy adoption site$/ do
   @browser.goto "http://puppies.herokuapp.com"
 end
 
 When /^I click the "([^\"]*)" button$/ do |button_value|
   @browser.button(:value => button_value).click
+end
+
+When /^I click the Adopt Me! button$/ do
+  @browser.button(:value => "Adopt Me!").click
+  @cart = ShoppingCartPage.new(@browser)
 end
 
 When /^I click the second "([^\"]*)" button$/ do |button_value|
@@ -35,15 +36,14 @@ Then /^I should see "([^\"]*)"$/ do |expected_text|
 end
 
 Then /^I should see "([^"]*)" as the name for line item (\d+)$/ do |name, line_item|
-  row = row_for(line_item.to_i)
-  @browser.table(:index => 0)[row][1].text.should include name
+  @cart.name_for_line_item(line_item.to_i).should include name
 end
 
 When /^I should see "([^"]*)" as the subtotal for line item (\d+)$/ do |subtotal, line_item|
-  row = row_for(line_item.to_i) 
-  @browser.table(:index => 0)[row][3].text.should == subtotal
+  @cart.subtotal_for_line_item(line_item.to_i) == subtotal
 end
 
 When /^I should see "([^"]*)" as the cart total$/ do |total|
-  @browser.td(:class => 'total_cell').text.should == total
+  @cart.cart_total == total
 end
+

@@ -9,7 +9,7 @@ Feature: Adopting Puppies
 
   Scenario Outline: Adopting one puppy
     When I click the "View Details" button
-    And I click the "Adopt Me!" button
+    And I click the Adopt Me! button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1
     And I should see "$34.95" as the cart total
@@ -24,16 +24,16 @@ Feature: Adopting Puppies
   Examples:
     | name	| address		| email			| pay_type	|
     | Cheezy	| 123 Main Street	| cheezy@albenzi.com	| Credit card	|
-    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
-    | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
+#    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
+#    | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
 
   Scenario Outline: Adopting two puppies
     Given I am on the puppy adoption site
     When I click the "View Details" button
-    And I click the "Adopt Me!" button
+    And I click the Adopt Me! button
     And I click the "Adopt Another Puppy" button
     And I click the second "View Details" button
-    And I click the "Adopt Me!" button
+    And I click the Adopt Me! button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1
     Then I should see "Hanna" as the name for line item 2
@@ -50,5 +50,5 @@ Feature: Adopting Puppies
   Examples:
     | name	| address		| email			| pay_type	|
     | Cheezy	| 123 Main Street	| cheezy@albenzi.com	| Credit card	|
-    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
-    | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
+#    | Joseph	| 555 South St.		| joe@guru.com		| Check		|
+#    | Jared	| 234 Leandog Street	| doc@dev.com		| Purchase order|
