@@ -1,14 +1,15 @@
 Given /^I am on the puppy adoption site$/ do
   @browser.goto "http://puppies.herokuapp.com"
+  @home = HomePage.new(@browser)
 end
 
 When /^I click the first View Details button$/ do 
-  @browser.button(:value => 'View Details', :index => 0).click
+  @home.select_puppy_number 1
   @details = DetailsPage.new(@browser)
 end
 
 When /^I click the second View Details button$/ do
-  @browser.button(:value => 'View Details', :index => 1).click
+  @home.select_puppy_number 2
   @details = DetailsPage.new(@browser)
 end
 
