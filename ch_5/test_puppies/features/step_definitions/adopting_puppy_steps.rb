@@ -6,8 +6,7 @@ When /^I click the View Details button for "([^"]*)"$/ do |name|
   on(HomePage).select_puppy name
 end
 
-
-When /^I click the Adopt Me! button$/ do
+When /^I click the Adopt Me button$/ do
   on(DetailsPage).add_to_cart
   @cart = ShoppingCartPage.new(@browser)
 end
@@ -32,20 +31,8 @@ When /^I click the Complete the Adoption button$/ do
   on(ShoppingCartPage).proceed_to_checkout
 end
 
-When /^I enter "([^\"]*)" in the name field$/ do |name|
-  on(CheckOutPage).enter_name = name
-end
-
-When /^I enter "([^\"]*)" in the address field$/ do |address|
-  on(CheckOutPage).enter_address = address
-end
-
-When /^I enter "([^\"]*)" in the email field$/ do |email|
-  on(CheckOutPage).enter_email = email
-end
-
-When /^I select "([^\"]*)" from the pay with dropdown$/ do |pay_with|
-  on(CheckOutPage).enter_pay_with = pay_with
+When /^I complete the adoption with:$/ do |table|
+  on(CheckoutPage).checkout(table.hashes.first)
 end
 
 When /^I click the Place Order button$/ do
