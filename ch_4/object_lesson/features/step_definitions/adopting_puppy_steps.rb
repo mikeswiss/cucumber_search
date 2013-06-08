@@ -33,22 +33,23 @@ end
 
 When /^I click the Complete the Adoption button$/ do 
   @cart.proceed_to_checkout
+  @checkout = CheckOutPage.new(@browser)
 end
 
 When /^I enter "([^\"]*)" in the name field$/ do |name|
-  @browser.text_field(:id => "order_name").set(name)
+  @checkout.enter_name(name)
 end
 
 When /^I enter "([^\"]*)" in the address field$/ do |address|
-  @browser.text_field(:id => 'order_address').set(address)
+  @checkout.enter_address(address)
 end
 
 When /^I enter "([^\"]*)" in the email field$/ do |email|
-  @browser.text_field(:id => 'order_email').set(email)
+  @checkout.enter_email(email)
 end
 
 When /^I select "([^\"]*)" from the pay with dropdown$/ do |pay_with|
-  @browser.select_list(:id => 'order_pay_type').select(pay_with)
+  @checkout.enter_pay_with(pay_with)
 end
 
 Then /^I should see "([^\"]*)"$/ do |expected_text|
