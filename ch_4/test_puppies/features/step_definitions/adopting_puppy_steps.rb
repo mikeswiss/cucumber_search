@@ -1,49 +1,57 @@
-def row_for(line_item)
-  (line_item - 1) * 6
-end
-
 Given /^I am on the puppy adoption site$/ do
-  @browser.goto "http://puppies.herokuapp.com"
+  visit(HomePage)
 end
 
-When /^I click the "([^\"]*)" button$/ do |button_value|
-  @browser.button(:value => button_value).click
+When /^I click the View Details button for "([^"]*)"$/ do |name|
+  on(HomePage).select_puppy name
 end
 
-When /^I click the second "([^\"]*)" button$/ do |button_value|
-  @browser.button(:value => button_value, :index => 1).click
+
+When /^I click the Adopt Me! button$/ do
+  on(DetailsPage).add_to_cart
+  @cart = ShoppingCartPage.new(@browser)
 end
 
-When /^I enter "([^\"]*)" in the name field$/ do |name|
-  @browser.text_field(:id => "order_name").set(name)
+Then /^I should see "([^"]*)" as the name for (line item \d+)$/ do |name, line_item|
+  on(ShoppingCartPage).name_for_line_item(line_item).should include name
 end
 
-When /^I enter "([^\"]*)" in the address field$/ do |address|
-  @browser.text_field(:id => 'order_address').set(address)
-end
-
-When /^I enter "([^\"]*)" in the email field$/ do |email|
-  @browser.text_field(:id => 'order_email').set(email)
-end
-
-When /^I select "([^\"]*)" from the pay with dropdown$/ do |pay_with|
-  @browser.select_list(:id => 'order_pay_type').select(pay_with)
-end
-
-Then /^I should see "([^\"]*)"$/ do |expected_text|
-  @browser.text.should include expected_text
-end
-
-Then /^I should see "([^"]*)" as the name for line item (\d+)$/ do |name, line_item|
-  row = row_for(line_item.to_i)
-  @browser.table(:index => 0)[row][1].text.should include name
-end
-
-When /^I should see "([^"]*)" as the subtotal for line item (\d+)$/ do |subtotal, line_item|
-  row = row_for(line_item.to_i) 
-  @browser.table(:index => 0)[row][3].text.should == subtotal
+When /^I should see "([^"]*)" as the subtotal for (line item \d+)$/ do |subtotal, line_item|
+  on(ShoppingCartPage).subtotal_for_line_item(line_item) == subtotal
 end
 
 When /^I should see "([^"]*)" as the cart total$/ do |total|
-  @browser.td(:class => 'total_cell').text.should == total
+  on(ShoppingCartPage).cart_total == total
+end
+
+When /^I click the Adopt Another Puppy button$/ do 
+  on(ShoppingCartPage).continue_adopting_puppies
+end
+
+When /^I click the Complete the Adoption button$/ do 
+  on(ShoppingCartPage).proceed_to_checkout
+end
+
+When /^I enter "([^\"]*)" in the name field$/ do |name|
+  on(CheckOutPage).enter_name = name
+end
+
+When /^I enter "([^\"]*)" in the address field$/ do |address|
+  on(CheckOutPage).enter_address = address
+end
+
+When /^I enter "([^\"]*)" in the email field$/ do |email|
+  on(CheckOutPage).enter_email = email
+end
+
+When /^I select "([^\"]*)" from the pay with dropdown$/ do |pay_with|
+  on(CheckOutPage).enter_pay_with = pay_with
+end
+
+When /^I click the Place Order button$/ do
+  on(CheckOutPage).place_order
+end
+
+Then /^I should see "([^\"]*)"$/ do |expected_text|
+  @current_page.text.should include expected_text
 end
