@@ -8,7 +8,7 @@ Feature: Adopting Puppies
     Given I am on the puppy adoption site
 
   Scenario Outline: Adopting one puppy
-    When I click the "View Details" button
+    When I click the first View Details button
     And I click the Adopt Me! button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1
@@ -29,10 +29,10 @@ Feature: Adopting Puppies
 
   Scenario Outline: Adopting two puppies
     Given I am on the puppy adoption site
-    When I click the "View Details" button
+    When I click the first View Details button
     And I click the Adopt Me! button
     And I click the Adopt Another Puppy button
-    And I click the second "View Details" button
+    And I click the second View Details button
     And I click the Adopt Me! button
     Then I should see "Brook" as the name for line item 1
     And I should see "$34.95" as the subtotal for line item 1

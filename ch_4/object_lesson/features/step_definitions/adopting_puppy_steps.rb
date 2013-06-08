@@ -2,16 +2,18 @@ Given /^I am on the puppy adoption site$/ do
   @browser.goto "http://puppies.herokuapp.com"
 end
 
-When /^I click the "([^\"]*)" button$/ do |button_value|
-  @browser.button(:value => button_value).click
+When /^I click the first View Details button$/ do 
+  @browser.button(:value => 'View Details', :index => 0).click
+  @details = DetailsPage.new(@browser)
 end
 
-When /^I click the second "([^\"]*)" button$/ do |button_value|
-  @browser.button(:value => button_value, :index => 1).click
+When /^I click the second View Details button$/ do
+  @browser.button(:value => 'View Details', :index => 1).click
+  @details = DetailsPage.new(@browser)
 end
 
 When /^I click the Adopt Me! button$/ do
-  @browser.button(:value => "Adopt Me!").click
+  @details.add_to_cart
   @cart = ShoppingCartPage.new(@browser)
 end
 
