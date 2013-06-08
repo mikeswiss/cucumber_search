@@ -34,4 +34,14 @@ class ShoppingCartPage
       @browser.td(:class => 'total_cell').text
     end
 
+  public
+    def continue_adopting_puppies
+      @browser.button(:value => 'Adopt Another Puppy').click
+    end
+
+  public
+    def proceed_to_checkout
+      @browser.button(:value => 'Complete the Adoption').click
+    end
+
 end
