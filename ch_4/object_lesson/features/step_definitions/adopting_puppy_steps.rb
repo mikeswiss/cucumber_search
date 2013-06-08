@@ -37,19 +37,23 @@ When /^I click the Complete the Adoption button$/ do
 end
 
 When /^I enter "([^\"]*)" in the name field$/ do |name|
-  @checkout.enter_name(name)
+  @checkout.enter_name = name
 end
 
 When /^I enter "([^\"]*)" in the address field$/ do |address|
-  @checkout.enter_address(address)
+  @checkout.enter_address = address
 end
 
 When /^I enter "([^\"]*)" in the email field$/ do |email|
-  @checkout.enter_email(email)
+  @checkout.enter_email = email
 end
 
 When /^I select "([^\"]*)" from the pay with dropdown$/ do |pay_with|
-  @checkout.enter_pay_with(pay_with)
+  @checkout.enter_pay_with = pay_with
+end
+
+When /^I click the Place Order button$/ do
+  @checkout.place_order
 end
 
 Then /^I should see "([^\"]*)"$/ do |expected_text|
