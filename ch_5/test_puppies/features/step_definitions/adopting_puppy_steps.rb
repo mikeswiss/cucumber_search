@@ -31,8 +31,12 @@ When /^I click the Complete the Adoption button$/ do
   on(ShoppingCartPage).proceed_to_checkout
 end
 
-When /^I complete the adoption with:$/ do |table|
-  on(CheckoutPage).checkout(table.hashes.first)
+When /^I complete the adoption using a credit card$/ do
+  on(CheckoutPage).checkout('pay_type' => 'Credit card')
+end
+
+When /^I complete the adoption with default data$/ do
+  on(CheckoutPage).checkout
 end
 
 When /^I click the Place Order button$/ do

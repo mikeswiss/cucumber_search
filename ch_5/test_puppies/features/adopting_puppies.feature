@@ -11,7 +11,12 @@ Feature: Adopting Puppies
     When I click the View Details button for "Brook"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
-    And I complete the adoption with:
-      | name 	| address 		| email 		| pay_type 	|
-      | Cheezy 	| 123 Main Street 	| cheezy@albenzi.com 	| Check 	|
+    And I complete the adoption with default data
+    Then I should see "Thank you for adopting a puppy!"
+
+  Scenario: Adopting a puppy using a table and a credit card
+    When I click the View Details button for "Brook"
+    And I click the Adopt Me button
+    And I click the Complete the Adoption button
+    And I complete the adoption using a credit card
     Then I should see "Thank you for adopting a puppy!"

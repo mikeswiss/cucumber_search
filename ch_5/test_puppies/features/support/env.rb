@@ -1,6 +1,8 @@
 
 require 'rspec-expectations'
 require 'page-object'
+require 'data_magic'
+World(PageObject::PageFactory)
 
 if ENV['HEADLESS'] == 'true'
   require 'headless'
@@ -13,5 +15,4 @@ if ENV['HEADLESS'] == 'true'
   end
 end
 
-World(PageObject::PageFactory)
 
