@@ -2,11 +2,8 @@ Paxos Search
 ========================
 ### Installation
 0. Install Rvm
-0. use rvm to install and select ruby 2.4
-```
- rvm install ruby-2.4  
-```
-3 Install bundler and bundle install
+0. Use rvm to install and select ruby 2.4 ```rvm install ruby-2.4 ```
+0. Install bundler and bundle install
 ```
 gem install bundler
 bundle install
