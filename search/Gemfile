@@ -1,0 +1,7 @@
+source 'http://rubygems.org'
+
+gem 'cucumber'
+gem 'rspec', "3.6.0" 
+gem 'page-object'
+gem 'byebug'
+gem 'report_builder'

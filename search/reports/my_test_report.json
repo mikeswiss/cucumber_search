@@ -1,0 +1,191 @@
+[
+  {
+    "uri": "features/paxos_search.feature",
+    "id": "searching-for-paxos",
+    "keyword": "Feature",
+    "name": "Searching for Paxos",
+    "description": "  as a user of google search\n  I want to be able to get search results for Paxos Bankchain\n  So any potential customer can get information about Paxos Bankchain",
+    "line": 1,
+    "elements": [
+      {
+        "id": "searching-for-paxos;search-paxos",
+        "keyword": "Scenario",
+        "name": "Search Paxos",
+        "description": "",
+        "line": 7,
+        "type": "scenario",
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1190613384
+            },
+            "status": "passed",
+            "duration": 1190613384
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I am on the Google Homepage",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2159013948
+            },
+            "status": "passed",
+            "duration": 2159013948
+          },
+          {
+            "keyword": "When ",
+            "name": "I search for \"Paxos Bankchain\"",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1809690041
+            },
+            "status": "passed",
+            "duration": 1809690041
+          },
+          {
+            "keyword": "Then ",
+            "name": "the url should contain \"Paxos Bankchain\"",
+            "line": 10,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13671285
+            },
+            "status": "passed",
+            "duration": 13671285
+          },
+          {
+            "keyword": "And ",
+            "name": "the search results should contain \"Paxos\"",
+            "line": 11,
+            "output": [
+              "Paxos is on the results page 21 times"
+            ],
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 146937909
+            },
+            "status": "passed",
+            "duration": 146937909
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 166932586
+            },
+            "status": "passed",
+            "duration": 166932586
+          }
+        ],
+        "status": "passed",
+        "duration": 5486859153
+      },
+      {
+        "id": "searching-for-paxos;ticker-check",
+        "keyword": "Scenario",
+        "name": "Ticker Check",
+        "description": "",
+        "line": 13,
+        "type": "scenario",
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1017555847
+            },
+            "status": "passed",
+            "duration": 1017555847
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "a \"XBTUSD\" currency pair",
+            "line": 14,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62058
+            },
+            "status": "passed",
+            "duration": 62058
+          },
+          {
+            "keyword": "When ",
+            "name": "I search the api for the currency",
+            "line": 15,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 156762
+            },
+            "status": "passed",
+            "duration": 156762
+          },
+          {
+            "keyword": "Then ",
+            "name": "the currency should be returned in the results",
+            "line": 16,
+            "match": {
+              "location": "features/step_definitions/search_steps.rb:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 181316012
+            },
+            "status": "passed",
+            "duration": 181316012
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 167256120
+            },
+            "status": "passed",
+            "duration": 167256120
+          }
+        ],
+        "status": "passed",
+        "duration": 1366346799
+      }
+    ],
+    "status": "working",
+    "duration": 6853205952
+  }
+]

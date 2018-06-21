@@ -1,0 +1,26 @@
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+require 'report_builder'
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.profile = 'default'
+end
+
+Cucumber::Rake::Task.new(:generate_report) do
+  ReportBuilder.input_path = 'output/cucumber_json'
+
+   ReportBuilder.configure do |config|
+     config.report_path = 'reports/my_test_report'
+     config.report_types = [:json, :html]
+   end
+
+  options = {
+      report_title: 'My Test Results'
+  }
+
+  ReportBuilder.build_report options
+end
+
+task :default => :features
+task :generate => :generate_report

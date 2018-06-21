@@ -1,0 +1,3 @@
+default: --color --format pretty --format json -o 'output/cucumber_json' --require features/  
+
+require_features: "--require features/"
