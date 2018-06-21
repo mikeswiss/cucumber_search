@@ -2,7 +2,7 @@ Paxos Search
 ========================
 ```gem install bundler```
 ```bundle install```
-### set environment variable for browser (chrome, firefox, etc)
+### set environment variable for browser (Chrome, Firefox, etc)
 ```export BROWSER=chrome```
 #### make sure your in the search directory
 ```rake```
