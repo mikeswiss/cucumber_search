@@ -1,7 +1,16 @@
 Paxos Search
 ========================
-```gem install bundler```
-```bundle install```
+### Installation
+0. Install Rvm
+0. use rvm to install and select ruby 2.4
+```
+ rvm install ruby-2.4  
+```
+3 Install bundler and bundle install
+```
+gem install bundler
+bundle install
+```
 ### set environment variable for browser (Chrome, Firefox, etc)
 ```export BROWSER=chrome```
 #### make sure your in the search directory
